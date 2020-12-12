@@ -19,6 +19,8 @@ let background_color;
 let redButton;
 let blueButton;
 let trainButton;
+let epochSlider;
+let epochValueText;
 
 let canvas;
 let predictionBackground;
@@ -42,6 +44,12 @@ function createUI() {
 
   trainButton = createButton("Train and Predict Full Space")
   trainButton.mousePressed(train)
+
+  createElement('h3', 'Number of Training Epochs')
+  epochSlider = createSlider(0,2000,30);
+  epochValueText = createElement('strong','blah')
+  
+
 }
 
 function setup() {
@@ -70,6 +78,9 @@ function draw() {
       fill(color(0, 0, 255));
     ellipse(coordX, coordY, pointRadius, pointRadius);
   }
+
+  // Update the UI
+  epochValueText.html(epochSlider.value());
 }
 
 function canvasMouseClicked() {
@@ -104,7 +115,7 @@ function train() {
   });
   console.log("Loaded Data: ", total)
   const trainingOptions = {
-    epochs: 10,
+    epochs: epochSlider.value(),
     batchSize: 12
   }
   nn.train(trainingOptions, finishedTraining);
