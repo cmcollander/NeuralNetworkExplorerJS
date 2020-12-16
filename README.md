@@ -1,5 +1,6 @@
 ## A 2D Neural Network Explorer in Javascript using p5.js and ml5.js
 A javascript implementation of my 2D Neural Network explorer
+### Try it out [here](https://cmcollander.github.io/NeuralNetworkExplorerJS/)!
 
 ![Example](nnjs.png)
 
